@@ -1,75 +1,93 @@
 # Passive-Recon-Module
 The Passive Recon Module is a lightweight Python-based toolkit designed for non-intrusive information gathering during penetration testing and red team engagements. It gathers publicly available information about a target domain without direct interaction, making it stealthy and safe to use.
-## 🔍 Features
-
-✅ WHOIS Lookup  
-✅ DNS Enumeration (A, MX, NS, TXT Records)  
-✅ Subdomain Enumeration using `crt.sh` and public APIs  
-
-> ⚠️ Passive recon means no interaction with the target system — only querying public sources.
-
----
 
 ## 📁 Project Structure
 
 Passive-Recon-Module/
-│
-├── whois_lookup.py # WHOIS Information Lookup
-├── dns_enum.py # DNS Record Enumeration
-├── subdomain_enum.py # Subdomain Finder (using crt.sh)
-├── requirements.txt # Required Python libraries
-└── README.md # You're reading it!
+├── scripts/
+│ ├── whois_lookup.py # WHOIS record extraction
+│ ├── dns_enum.py # A, MX, TXT, NS record enumeration
+│ └── subdomain_enum.py # Subdomain enumeration via public APIs
+├── requirements.txt # All dependencies listed here
+├── README.md # You're reading it!
+├── LICENSE # MIT License
+└── .gitignore # Python cache and environment exclusions
 
 yaml
-Copy code
+Copy
+Edit
 
 ---
 
-## 🧰 Installation
+                  🚀 Features
 
-1. **Clone the repo**:
+✅ WHOIS Lookup  
+✅ DNS Enumeration (A, MX, NS, TXT records)  
+✅ Subdomain Enumeration (via crt.sh, AlienVault OTX, etc.)  
+✅ Clean, modular scripts (easy to plug into other tools)  
+✅ CLI-ready (can be used manually or integrated into larger scripts)
+
+---
+                  ⚙️ Setup Instructions
+
+ 1. Clone the repository
+
 ```bash
 git clone https://github.com/mahadzulfiqar/Passive-Recon-Module.git
 cd Passive-Recon-Module
-Create & activate virtual environment (recommended):
+2. Install dependencies
+Use a virtual environment (recommended):
 
 bash
-Copy code
-python3 -m venv venv
+Copy
+Edit
+python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies:
-
-bash
-Copy code
 pip install -r requirements.txt
-🚀 Usage
-1. WHOIS Lookup
+
+           🧪 How to Use
+
+WHOIS Lookup
 bash
-Copy code
-python whois_lookup.py
-Input a domain (e.g., google.com) to see WHOIS information.
-
-2. DNS Enumeration
+Copy
+Edit
+python scripts/whois_lookup.py -d example.com
+DNS Enumeration
 bash
-Copy code
-python dns_enum.py
-Retrieves A, MX, TXT, and NS records for the given domain.
-
-3. Subdomain Enumeration
+Copy
+Edit
+python scripts/dns_enum.py -d example.com
+Subdomain Enumeration
 bash
-Copy code
-python subdomain_enum.py
-Finds subdomains using crt.sh’s public certificate data.
+Copy
+Edit
+python scripts/subdomain_enum.py -d example.com
 
-📌 Notes
-Internet connection is required.
+              📦 Dependencies
 
-crt.sh may throttle or block repeated queries — use responsibly.
+requests
 
-This is passive only — no packet sending to target server.
+dnspython
 
-👨‍💻 Author
+python-whois
+
+Install them using:
+
+bash
+Copy
+Edit
+pip install -r requirements.txt
+
+                📜 License
+
+This project is licensed under the MIT License. See LICENSE for more details.
+
+               ✍️ Author
 Mahad Zulfiqar
-🔗 GitHub | 📧 mahadzulfiqar2@gmail.com
+Cybersecurity Intern | GitHub | LinkedIn
 
+              🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
+               🛡️ Disclaimer
+This tool is intended for educational and authorized penetration testing purposes only. Do not use it on networks you do not own or have permission to test.
